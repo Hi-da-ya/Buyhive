@@ -31,4 +31,20 @@ class ProductById(Resource):
         if product:
             return make_response(jsonify(product.to_dict()), 200)
         else:
-            return make_response(jsonify({"error": "product not found"}), 404) 
+            return make_response(jsonify({"error": "product not found"}), 404)
+
+#Categories resource
+class Categories(Resource):
+    def get(self):
+        categories = [category.to_dict() for category in Category.query.all()]
+        return make_response(jsonify(categories), 200)
+    
+
+class CategoryById(Resource):
+    def get(self, id):
+        category = Category.query.filter_by(id = id).first()
+        if category:
+            return make_response(jsonify([category.to_dict()]), 200)
+        else:
+            return make_response(jsonify({"error": "category not found"}), 404)
+    
