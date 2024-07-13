@@ -18,9 +18,10 @@ class User(db.Model, SerializerMixin):
 
     serialize_rules = ('-reviews.user', '-orders.user',)
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30))
+    username = db.Column(db.String(30))
     email = db.Column(db.String(50), unique=True)
-    phone_number = db.Column(db.String(20))
+    # phone_number = db.Column(db.String(20))
+    password = db.Column(db.String(60), nullable=False)
     reviews = db.relationship('Review', back_populates='user', lazy=True)
     orders = db.relationship('Order', back_populates='user', lazy=True)
 
