@@ -1,3 +1,4 @@
+
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -9,6 +10,7 @@ import Kids from './Pages/Kids';
 import Men from './Pages/Men';
 import Women from './Pages/Women';
 import ShopContextProvider from './Context/ShopContext'; // Ensure to import ShopContextProvider
+import LoginSignup from './components/Login/LoginSignup';
 
 function App() {
   const categoryone = 'Women';
@@ -37,7 +39,7 @@ function App() {
 
             {/* Authentication routes */}
             {/* <Route path='/signup' element={<Signup />} /> */}
-            {/* <Route path='/login' element={<Login />} /> */}
+            <Route path='/login' element={<LoginSignup />} /> 
           </Routes>
           <Footer />
         </BrowserRouter>
