@@ -39,10 +39,8 @@ const LoginSignup = () => {
     setError('');
 
     if (isSignup) {
-      // Handle signup logic here
       setIsSignup(false);
     } else {
-      // Handle login logic here
       navigate('/profile', { state: { username, email } });
     }
   };
