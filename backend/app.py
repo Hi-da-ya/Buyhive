@@ -23,7 +23,7 @@ migrate = Migrate(app, db)
 db.init_app(app)
 bcrypt = Bcrypt(app)
 
-
+CORS(app)
 class Home(Resource):
     def get(self):
         return "<h1>Welcome to Buy Hive</h1>"

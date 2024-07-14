@@ -11,6 +11,10 @@ import Men from './Pages/Men';
 import Women from './Pages/Women';
 import ShopContextProvider from './Context/ShopContext'; // Ensure to import ShopContextProvider
 import LoginSignup from './components/Login/LoginSignup';
+import ContactUs from './Pages/Contactus';
+import AboutUs from './Pages/Aboutus';
+import PrivacyPolicy from './Pages/Privacypolicy';
+import TermsAndConditions from './Pages/Term';
 
 function App() {
   const categoryone = 'Women';
@@ -39,7 +43,12 @@ function App() {
 
             {/* Authentication routes */}
             {/* <Route path='/signup' element={<Signup />} /> */}
-            <Route path='/login' element={<LoginSignup />} /> 
+            <Route path='/login' element={<LoginSignup />} />
+
+            <Route path='/contact' element={<ContactUs />} /> 
+            <Route path='/about' element={<AboutUs />} />  
+            <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+            <Route path='/terms-conditions' element={<TermsAndConditions />} /> 
           </Routes>
           <Footer />
         </BrowserRouter>
