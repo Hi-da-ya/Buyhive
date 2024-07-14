@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import ProductModal from './ProductModal'; // Assuming your ProductModal component is in the same directory
-
+import ProductModal from './ProductModal'; 
 const Women = ({ categoryone }) => {
   const [products, setProducts] = useState([]);
-  const [selectedProductId, setSelectedProductId] = useState(null); // State for the selected product ID
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal open/close
-
+  const [selectedProductId, setSelectedProductId] = useState(null); 
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   useEffect(() => {
-    fetch("http://127.0.0.1:5555/categories/1") // Adjust the endpoint to match your API
+    fetch("http://127.0.0.1:5555/categories/1") 
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch');
@@ -16,7 +14,7 @@ const Women = ({ categoryone }) => {
       })
       .then(data => {
         if (data.length > 0 && data[0].products) {
-          setProducts(data[0].products); // Set products from the first category (assuming the response array contains categories)
+          setProducts(data[0].products); 
         } else {
           console.error('No products found in response:', data);
         }
@@ -66,9 +64,9 @@ const Women = ({ categoryone }) => {
       </div>
 
       <ProductModal
-        productId={selectedProductId} // Pass the selected product ID to the modal
-        isOpen={isModalOpen} // Pass the modal open state
-        onClose={closeModal} // Pass the close modal function
+        productId={selectedProductId} 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
       />
     </div>
   );
