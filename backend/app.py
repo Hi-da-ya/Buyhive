@@ -1,6 +1,7 @@
 from flask import Flask, request, make_response, jsonify
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
+from flask_cors import CORS
 
 from models import db, Product,User, Order, OrderItem, Category, Review
 
@@ -14,7 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 migrate = Migrate(app, db)
 db.init_app(app)
 
-
+CORS(app)
 class Home(Resource):
     def get(self):
         return "<h1>Welcome to Buy Hive</h1>"
