@@ -10,7 +10,8 @@ import Kids from './Pages/Kids';
 import Men from './Pages/Men';
 import Women from './Pages/Women';
 import ShopContextProvider from './Context/ShopContext'; // Ensure to import ShopContextProvider
-import LoginSignup from './components/Login/LoginSignup';
+import Login from './components/Login/Login';
+import Signup from './components/Login/Signup'
 
 function App() {
   const categoryone = 'Women';
@@ -39,7 +40,8 @@ function App() {
 
             {/* Authentication routes */}
             {/* <Route path='/signup' element={<Signup />} /> */}
-            <Route path='/login' element={<LoginSignup />} /> 
+            <Route path='/login' element={<Login />} /> 
+            <Route path='/signup' element={<Signup />} /> 
           </Routes>
           <Footer />
         </BrowserRouter>

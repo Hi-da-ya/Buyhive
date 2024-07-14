@@ -120,10 +120,10 @@ def signup():
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    if 'username' not in data or 'password' not in data:
-        return jsonify({'message': 'Missing username or password!'}), 400
+    if 'email' not in data or 'password' not in data:
+        return jsonify({'message': 'Missing email or password!'}), 400
 
-    user = User.query.filter_by(username=data['username']).first()
+    user = User.query.filter_by(email=data['email']).first()
     if not user or not bcrypt.check_password_hash(user.password, data['password']):
         return jsonify({'message': 'Invalid credentials!'}), 401
     
