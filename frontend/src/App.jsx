@@ -10,6 +10,9 @@ import Kids from './Pages/Kids';
 import Men from './Pages/Men';
 import Women from './Pages/Women';
 import ShopContextProvider from './Context/ShopContext'; // Ensure to import ShopContextProvider
+import Login from './components/Login/Login';
+import Signup from './components/Login/Signup'
+
 import LoginSignup from './components/Login/LoginSignup';
 import ContactUs from './Pages/Contactus';
 import AboutUs from './Pages/Aboutus';
@@ -43,7 +46,8 @@ function App() {
 
             {/* Authentication routes */}
             {/* <Route path='/signup' element={<Signup />} /> */}
-            <Route path='/login' element={<LoginSignup />} />
+            <Route path='/login' element={<Login />} /> 
+            <Route path='/signup' element={<Signup />} /> 
 
             <Route path='/contact' element={<ContactUs />} /> 
             <Route path='/about' element={<AboutUs />} />  
