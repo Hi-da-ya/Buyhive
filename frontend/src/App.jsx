@@ -12,8 +12,6 @@ import Women from './Pages/Women';
 import ShopContextProvider from './Context/ShopContext'; // Ensure to import ShopContextProvider
 import Login from './components/Login/Login';
 import Signup from './components/Login/Signup'
-
-import LoginSignup from './components/Login/LoginSignup';
 import ContactUs from './Pages/Contactus';
 import AboutUs from './Pages/Aboutus';
 import PrivacyPolicy from './Pages/Privacypolicy';
