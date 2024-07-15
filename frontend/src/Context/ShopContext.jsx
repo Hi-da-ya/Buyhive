@@ -42,13 +42,13 @@ const ShopContextProvider = ({ children }) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = products.find(
-          (product) => product.id === Number(item)
-        );
-        totalAmount += itemInfo.new_price * cartItems[item];
+        let itemInfo = products.find((product) => product.id === Number(item));
+        if (itemInfo) {
+          totalAmount += parseFloat(itemInfo.price) * cartItems[item];
+        }
       }
     }
-    return totalAmount;
+    return totalAmount.toFixed(2); 
   };
 
   const getTotalCartItems = () => {
