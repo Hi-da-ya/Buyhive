@@ -25,11 +25,11 @@ const CartItems = () => {
               <div className="cartitems-format cartitems-format-main">
                 <img src={product.image} alt="" className="carticon-product-icon" />
                 <p>{product.name}</p>
-                <p>${product.new_price}</p>
+                <p>ksh{parseFloat(product.price).toFixed(2)}</p>
                 <button className="cartitems-quantity">
                   {cartItems[product.id]}
                 </button>
-                <p>${product.new_price * cartItems[product.id]}</p>
+                <p>ksh{(parseFloat(product.price) * cartItems[product.id]).toFixed(2)}</p>
                 <img
                   className="cartitems-remove-icon"
                   src={remove_icon}
@@ -51,7 +51,7 @@ const CartItems = () => {
           <div>
             <div className="cartitems-total-item">
               <p>Subtotal</p>
-              <p>${getTotalCartAmount()}</p>
+              <p>ksh{getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cartitems-total-item">
@@ -61,7 +61,7 @@ const CartItems = () => {
             <hr />
             <div className="cartitems-total-item">
               <h3>Total</h3>
-              <h3>${getTotalCartAmount()}</h3>
+              <h3>ksh{getTotalCartAmount()}</h3>
             </div>
           </div>
           <button>PROCEED TO CHECKOUT</button>
