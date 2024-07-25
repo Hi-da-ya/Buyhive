@@ -16,6 +16,7 @@ import ContactUs from './Pages/Contactus';
 import AboutUs from './Pages/Aboutus';
 import PrivacyPolicy from './Pages/Privacypolicy';
 import TermsAndConditions from './Pages/Term';
+import { AuthProvider } from './Context/AuthContext';
 
 function App() {
   const categoryone = 'Women';
@@ -23,6 +24,7 @@ function App() {
   const categorythree = 'Kids';
   
   return (
+    <AuthProvider>
     <ShopContextProvider> {/* Wrap entire application with ShopContextProvider */}
       <div>
         <BrowserRouter>
@@ -56,6 +58,7 @@ function App() {
         </BrowserRouter>
       </div>
     </ShopContextProvider>
+    </AuthProvider>
   );
 }
 
