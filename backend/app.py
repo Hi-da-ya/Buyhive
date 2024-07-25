@@ -105,21 +105,22 @@ def token_required(f):
 def signup():
     data = request.get_json()
     if 'username' not in data or 'password' not in data or 'email' not in data:
-        return jsonify({'message': 'Missing username, password, or email!'}), 400
+        return jsonify({'success': False, 'message': 'Missing username, password, or email!'}), 400
     
     existing_user = User.query.filter_by(username=data['username']).first()
     if existing_user:
-        return jsonify({'message': 'Username already exists!'}), 409
+        return jsonify({'success': False, 'message': 'Username already exists!'}), 409
     
     existing_email = User.query.filter_by(email=data['email']).first()
     if existing_email:
-        return jsonify({'message': 'Email already exists!'}), 409
+        return jsonify({'success': False, 'message': 'Email already exists!'}), 409
     
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
     new_user = User(username=data['username'], email=data['email'], password=hashed_password)
     db.session.add(new_user)
     db.session.commit()
-    return jsonify({'message': 'User registered successfully!'})
+    return jsonify({'success': True, 'message': 'User registered successfully!'})
+
 
 @app.route('/login', methods=['POST'])
 def login():
