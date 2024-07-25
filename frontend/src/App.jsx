@@ -43,9 +43,9 @@ function App() {
             <Route path='/cart' element={<Cart />} />
 
             {/* Authentication routes */}
-            {/* <Route path='/signup' element={<Signup />} /> */}
+            <Route path='/signup' element={<Signup />} />
             <Route path='/login' element={<Login />} /> 
-            <Route path='/signup' element={<Signup />} /> 
+            {/* <Route path='/signup' element={<Signup />} />  */}
 
             <Route path='/contact' element={<ContactUs />} /> 
             <Route path='/about' element={<AboutUs />} />  

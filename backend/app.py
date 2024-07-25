@@ -111,6 +111,10 @@ def signup():
     if existing_user:
         return jsonify({'message': 'Username already exists!'}), 409
     
+    existing_email = User.query.filter_by(email=data['email']).first()
+    if existing_email:
+        return jsonify({'message': 'Email already exists!'}), 409
+    
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
     new_user = User(username=data['username'], email=data['email'], password=hashed_password)
     db.session.add(new_user)
