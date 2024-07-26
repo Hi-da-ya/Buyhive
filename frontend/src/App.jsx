@@ -18,9 +18,16 @@ import PrivacyPolicy from './Pages/Privacypolicy';
 import TermsAndConditions from './Pages/Term';
 
 function App() {
+ // const navigate = useNavigate();
+
   const categoryone = 'Women';
   const categorytwo = 'Men';
   const categorythree = 'Kids';
+  
+
+  
+
+  
   
   return (
     <ShopContextProvider> {/* Wrap entire application with ShopContextProvider */}
