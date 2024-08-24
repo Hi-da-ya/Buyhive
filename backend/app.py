@@ -8,7 +8,7 @@ from functools import wraps
 import os
 from flask_bcrypt import Bcrypt
 
-from models import db, Product, User, Order, OrderItem, Category, Review
+from .models import db, Product, User, Order, OrderItem, Category, Review
 
 app = Flask(__name__)
 api = Api(app) 
