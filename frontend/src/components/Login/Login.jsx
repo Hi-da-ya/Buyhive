@@ -14,10 +14,11 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5555/login', { email, password });
-      if (response.data.token) {  // Check if token is returned
-        login();  // Update the authentication state
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token);  // Save JWT
+        login();  // Update auth state
         alert('Login successful');
-        navigate('/');  // Redirect to homepage or another page
+        navigate('/');  // Redirect after login
       } else {
         setError(response.data.message);
       }

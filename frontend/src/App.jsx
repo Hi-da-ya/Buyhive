@@ -17,6 +17,7 @@ import AboutUs from './Pages/Aboutus';
 import PrivacyPolicy from './Pages/Privacypolicy';
 import TermsAndConditions from './Pages/Term';
 import { AuthProvider } from './Context/AuthContext';
+import Profile from './Pages/Profile';
 
 function App() {
   const categoryone = 'Women';
@@ -52,6 +53,7 @@ function App() {
             <Route path='/contact' element={<ContactUs />} /> 
             <Route path='/about' element={<AboutUs />} />  
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+            <Route path='/profile' element={<Profile/>} />
             <Route path='/terms-conditions' element={<TermsAndConditions />} /> 
           </Routes>
           <Footer />

@@ -143,6 +143,7 @@ def login():
 def protected(current_user):
     return jsonify({'message': f'Welcome {current_user.username}!'})
 
+
 @app.route('/logout', methods=['POST'])
 @token_required
 def logout(current_user):
