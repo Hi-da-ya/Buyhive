@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Signup({ handleSignup }) {
+function Signup() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,13 +14,19 @@ function Signup({ handleSignup }) {
     try {
       const response = await axios.post('http://localhost:5555/signup', { username, email, password });
       if (response.data.success) {
-        handleSignup();
+        alert('Signup successful! You can now log in.');
         navigate('/login'); 
       } else {
-        setError(response.data.message);
+        alert(`Error: ${response.data.message}`);
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      console.error('Signup error:', err); // Log the error details to the console
+      // Check if the error response has a specific message
+      if (err.response && err.response.data && err.response.data.message) {
+        alert(`Error: ${err.response.data.message}`);
+      } else {
+        alert('An unexpected error occurred. Please try again.');
+      }
     }
   };
 

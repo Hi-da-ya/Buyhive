@@ -16,6 +16,8 @@ import ContactUs from './Pages/Contactus';
 import AboutUs from './Pages/Aboutus';
 import PrivacyPolicy from './Pages/Privacypolicy';
 import TermsAndConditions from './Pages/Term';
+import { AuthProvider } from './Context/AuthContext';
+import Profile from './Pages/Profile';
 
 function App() {
   const categoryone = 'Women';
@@ -23,6 +25,7 @@ function App() {
   const categorythree = 'Kids';
   
   return (
+    <AuthProvider>
     <ShopContextProvider> {/* Wrap entire application with ShopContextProvider */}
       <div>
         <BrowserRouter>
@@ -43,19 +46,21 @@ function App() {
             <Route path='/cart' element={<Cart />} />
 
             {/* Authentication routes */}
-            {/* <Route path='/signup' element={<Signup />} /> */}
+            <Route path='/signup' element={<Signup />} />
             <Route path='/login' element={<Login />} /> 
-            <Route path='/signup' element={<Signup />} /> 
+            {/* <Route path='/signup' element={<Signup />} />  */}
 
             <Route path='/contact' element={<ContactUs />} /> 
             <Route path='/about' element={<AboutUs />} />  
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+            <Route path='/profile' element={<Profile/>} />
             <Route path='/terms-conditions' element={<TermsAndConditions />} /> 
           </Routes>
           <Footer />
         </BrowserRouter>
       </div>
     </ShopContextProvider>
+    </AuthProvider>
   );
 }
 

@@ -23,7 +23,7 @@ const CartItems = () => {
           return (
             <div key={idx}>
               <div className="cartitems-format cartitems-format-main">
-                <img src={product.image} alt="" className="carticon-product-icon" />
+                <img src={product.image_url} alt="" className="carticon-product-icon" />
                 <p>{product.name}</p>
                 <p>ksh{parseFloat(product.price).toFixed(2)}</p>
                 <button className="cartitems-quantity">
